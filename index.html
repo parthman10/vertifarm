@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VertiFarm</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">VertiFarm</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#interactive">Interactive</a></li>
+    <li><a href="#contact">Feedback</a></li>
+  </ul>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <h1>🌱 VertiFarm</h1>
+  <p>Grow Food Anywhere with Smart Automation</p>
+  <p>Smart vertical farming using automation & sensors</p>
+  <button class="btn">Explore System</button>
+</div>
+
+<!-- HOW -->
+<section id="how" class="hidden">
+  <h2>⚙️ How It Works</h2>
+  <div class="grid">
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front">📡 Sensor Data</div>
+      <div class="flip-back">Sensors continuously collect real-time data like moisture, temperature, and humidity to monitor plant health.</div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front">🧠 Analysis</div>
+      <div class="flip-back">The system analyzes collected data using smart logic to decide what action is needed for optimal growth.</div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front">⚡ Automation</div>
+      <div class="flip-back">Automation controls water pumps, lights, and fans automatically based on plant requirements.</div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front">📱 Monitoring</div>
+      <div class="flip-back">Users can monitor and control the system through a dashboard with live updates and alerts.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="hidden">
+  <h2>🌟 Key Features</h2>
+  <div class="grid">
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front">💧 Irrigation</div>
+      <div class="flip-back">Automatic irrigation system ensures plants get the right amount of water at the right time.</div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front">📊 Monitoring</div>
+      <div class="flip-back">Real-time monitoring allows users to track plant conditions like moisture, temperature, and humidity.</div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front">💡 Lighting</div>
+      <div class="flip-back">Smart lighting system provides optimal light conditions for plant growth at all times.</div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front">🌡 Climate</div>
+      <div class="flip-back">Climate control maintains ideal temperature and humidity levels for healthy plant development.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 🔥 INTERACTIVE -->
+<section id="interactive" class="hidden">
+<h2>🎮 Interactive Smart Dashboard</h2>
+
+<div class="grid">
+
+<div class="interactive-box">
+<h3>⚡ Control</h3>
+
+<label class="switch">
+<input type="checkbox" onchange="togglePump(this)">
+<span class="slider"></span>
+</label>
+<p id="pumpStatus">Pump: OFF</p>
+
+<label class="switch">
+<input type="checkbox" onchange="toggleLight(this)">
+<span class="slider"></span>
+</label>
+<p id="lightStatus">Light: OFF</p>
+
+<p>Status: <span id="systemStatus">🟢 Running</span></p>
+</div>
+
+<div class="interactive-box">
+<h3>📊 Live Data</h3>
+<p>Moisture: <span id="moisture">40%</span></p>
+<p>Temp: <span id="temp">30°C</span></p>
+<p>Humidity: <span id="humidity">60%</span></p>
+<canvas id="chart"></canvas>
+</div>
+
+<div class="interactive-box">
+<h3>🌿 Diagnosis</h3>
+<button onclick="checkAnswer('water')">Overwatering</button>
+<button onclick="checkAnswer('nutrient')">Nutrient Deficiency</button>
+<p id="gameResult"></p>
+</div>
+
+<div class="interactive-box">
+<h3>📷 Upload Plant</h3>
+<input type="file" onchange="previewImage(event)">
+<img id="preview" class="preview-img">
+<p id="analysis"></p>
+</div>
+
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="hidden">
+  <h2>📸 Model Showcase</h2>
+  <div class="grid gallery">
+    <div><img src="./assets/modelimg.jpg"><p>Water system</p></div>
+    <div><img src="./assets/sensors.jpg"><p>Sensors</p></div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section id="contact" class="hidden">
+  <h2>💬 Feedback</h2>
+  <div class="feedback-box">
+    <form action="https://formspree.io/f/mojkrkok" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Feedback" required></textarea>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="hidden">
+  <h2>👩‍💻 Our Team</h2>
+  <div class="grid">
+    <div class="card"><h3>Parth Mane</h3></div>
+    <div class="card"><h3>Shruti Patil</h3></div>
+    <div class="card"><h3>Samrudhi Malve</h3></div>
+    <div class="card"><h3>Sanika Bhangare</h3></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>VertiFarm 🌱</strong></p>
+  <p>Building the future of smart farming 🌱</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
